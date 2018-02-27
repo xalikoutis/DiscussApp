@@ -35,6 +35,7 @@ namespace DiscussApp.ViewModels
             NavigationService.NavigateAsync("");
         }
 
+
         public override async void OnNavigatedTo(NavigationParameters parameters)
         {
             Name = parameters["name"].ToString();

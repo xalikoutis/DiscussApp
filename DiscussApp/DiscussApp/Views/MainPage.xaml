@@ -1,12 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DiscussApp.Views.MainPage"
              Title="{Binding Title}">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
-        <Label Text="{Binding Name}"/>
-    </StackLayout>
+    <MasterDetailPage.Master>
+        <!-- Hamburger Menu Secret Sauce... Add an Icon!!!! Make sure it's in your resources for your Platform Project -->
+        <NavigationPage Title="Required Foo" >
+            <x:Arguments>
+                <ContentPage Title="Menu">
+                    <StackLayout Padding="40">
+                        <Label Text="{Binding Name,StringFormat='Hello, {0}'}" />
+                        <!--<Button Text="MyProfile" Command="{Binding NavigateCommand}" CommandParameter="Navigation/ViewA?message=Did%20you%20see%20the%20secret%20sauce%3F" />-->
 
-</ContentPage>
+                        <Button Text="Categories" Command="{Binding NavigateCommand}" CommandParameter="Navigation/Categories?message=Did%20you%20see%20the%20secret%20sauce%3F" />
+                        <!--<Button Text="Recent Discussions" Command="{Binding NavigateCommand}" CommandParameter="Navigation/ViewB?message=Told%20you%20Prism%20Rocks%21%21%21" />
+                        <Button Text="My Discussions" Command="{Binding NavigateCommand}" CommandParameter="Navigation/ViewC?message=Does%20the%20hamburger%20make%20you%20hungry%3F%3F%3F" />
+                        <Button Text="Subscribed" Command="{Binding NavigateCommand}" CommandParameter="Navigation/ViewC?message=Does%20the%20hamburger%20make%20you%20hungry%3F%3F%3F" />
+                        <Button Text="About" Command="{Binding NavigateCommand}" CommandParameter="Navigation/ViewC?message=Does%20the%20hamburger%20make%20you%20hungry%3F%3F%3F" />-->
+
+                    </StackLayout>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Master>
+
+</MasterDetailPage>
